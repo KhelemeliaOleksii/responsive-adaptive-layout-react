@@ -13,8 +13,8 @@ import {createGlobalStyle} from 'styled-components';
 //     },
 //   }
 // and use with pleasure
-import px2vw from '@/utils/px2vw';
-import viewport_width from '@/consts/viewport_width';
+import px2vw from '../utils/px2vw';
+import viewport_width from '../consts/device_width';
 
 export const GlobalStyles = createGlobalStyle`
     *{
@@ -24,11 +24,11 @@ export const GlobalStyles = createGlobalStyle`
     }
     :root{
         font-size: ${px2vw(24)};
-        @media (min-width: ${viewport_width.TABLET}) {
-            font-size: ${px2vw(18)};
+        @media screen and (min-width: ${viewport_width.TABLET}px) {
+            font-size: ${px2vw(18)}px;
         }
-        @media (min-width: ${viewport_width.DESKTOP}) {
-            font-size: ${px2vw(12)};
+        @media screen and (min-width: ${viewport_width.DESKTOP}px) {
+            font-size: ${px2vw(12)}px;
         }
     }
 `
