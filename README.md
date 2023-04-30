@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# Create adaptive and responsive layouts with React and Styled-Components 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Matherial from
+1. Carlos Queiroz [Creating responsive and adaptive layouts with React and Styled-Components](https://dev.to/carloscne/creating-responsive-and-adaptive-layouts-with-react-and-styled-components-1ghi)
+2. GoIT online course
 
-## Available Scripts
+In this project I wanted to use Carlos's **px2vw** function. It's cool approach. 
 
-In the project directory, you can run:
+But on my opiniion more convinent solution is to use css property **flex-basis** for cards and negative displacement (**margin-left**, **margin-top**) for cards container. I have met this practice in **GoIT online Full Stack course**. 
 
-### `npm start`
+For example, 2 cards for a tablet device with **margin-left: 20px** between the cards. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Container's rule
+```
+@media screen and (min-width: ${device_width.TABLET}px) {
+    flex-basis: calc(100% / 2 - 20px );
+}
+```
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: -20px;
+            margin-top: -20px;
+### Card's rule
+```
+@media screen and (min-width: ${device_width.TABLET}px) {
+    flex-basis: calc(100% / 2 - 20px );
+    margin-top: 20px;
+}
+```
+For users there is no visual top and left displacements in the last per row and column cards 
